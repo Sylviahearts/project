@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Control flow/structures</title>
+    <link rel="stylesheet" href="bootstrap5/css/bootstrap.min.css" />
+</head>
+
+<body class="bg-dark">
+    <div class="row">
+        <div class="col-md-5 mt-5 mx-auto">
+            <div class="card card-body shadow">
+                <h5 class="text-center">ALPHA BANK</h5>
+                <label for="">Enter amount</label>
+                <input type="number" id="amt" class="form-control mt-3">
+
+                <div class="btn-group mt-5">
+                    <div onclick="checkBalance()" class="btn btn-info">Balance</div>
+                    <div onclick="withdraw()" class="btn btn-primary">Withdraw</div>
+                    <div onclick="DepositMoney()" class="btn btn-success">Deposit</div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+
+    <script>
+        // console.log('hello dear');
+
+        let balance = 1000;
+        let amount = 100;
+
+
+        function withdraw()  {
+            let newAmt = document.getElementById('amt').value
+            // newAmt = parseInt(newAmt)
+
+            if (newAmt > balance) {
+                alert('insufficient balance');
+            }
+            else if (newAmt == balance) {
+                alert('Account cannot be empty ');
+            }
+            else {
+
+                balance -= parseInt(newAmt);
+                alert("withdrawal successful!!! Your new balance is " + balance)
+
+            }
+        }
+
+        function checkBalance() {
+            alert('Your balance is ' + balance)
+
+
+        }
+
+        function DepositMoney() {
+
+            let newAmt = document.getElementById('amt').value
+            balance += parseInt(newAmt);
+            alert("DEposit successful!!! Your new balance is " + balance)
+
+        }
+
+    </script>
+</body>
+
+</html>
